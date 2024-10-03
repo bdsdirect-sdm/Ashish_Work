@@ -11,7 +11,7 @@ router.post('/signup', signup);
 router.post('/login', login);
 router.get('/profile', auth, getProfile);
 router.put('/profile', auth, updateProfile);
-router.post('/profile/upload',auth,upload.single('proflePic'),uploadProfilePic)
+router.post('/profile/upload',auth,upload.single('profilePic'),uploadProfilePic)
 
 
 export default router;  
