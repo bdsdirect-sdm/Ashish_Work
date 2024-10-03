@@ -3,6 +3,7 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import User from '../models/User';
 import config from '../utils/validateEnv';
+import { profile } from 'console';
 
 
 const generateToken = (id: number) => {
@@ -114,5 +115,28 @@ export const updateProfile = async (req: Request, res: Response) => {
   } catch (error) {
     console.error(error);
     res.status(500).send('Server error');
+  }
+
+
+};
+
+export const uploadProfilePic = async (req: Request, res: Response) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ message: 'No File uploded' });
+    }
+
+    const user = await User.findByPk((req as any).user.id);
+    if (!user) {
+      return res.status(404).json({message: 'User not found'});
+    }
+
+    user.profilePic = req.file.path;
+    await user.save();
+    res.json({message:'Profile pic is uploded', profilePic: user.profilePic });
+  }
+  catch(error){
+    console.error('Error uploding Profie Pic', error);
+    res.status(500).json({message: 'server error'});
   }
 };

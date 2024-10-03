@@ -10,6 +10,7 @@ export interface UserAttributes {
   dateOfBirth?: Date;
   gender?: 'male' | 'female';
   phoneNumber?: string;
+  profilePic?: string;
   createdAt?: Date;
   updatedAt?: Date;
 }
@@ -24,6 +25,7 @@ class User extends Model<UserAttributes, UserCreationAttributes> implements User
   public dateOfBirth?: Date;
   public gender?: 'male' | 'female';
   public phoneNumber?: string;
+  public profilePic?: string;
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
 }
@@ -65,6 +67,10 @@ User.init(
     },
     phoneNumber: {
       type: new DataTypes.STRING(20),
+      allowNull: true,
+    },
+    profilePic:{
+      type: new DataTypes.STRING(255),
       allowNull: true,
     },
   },
