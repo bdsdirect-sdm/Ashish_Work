@@ -3,7 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
-// import { toast } from 'react-toastify';
+
 
 
 const Signup: React.FC = () => {
@@ -63,57 +63,6 @@ const Signup: React.FC = () => {
             </Formik>
             <Link to="/login">Already have an account? Login here</Link>
         </div>
-        // <div>
-        //     <Formik
-
-        //     initialValues={{
-
-        //         user: [
-        //             {
-        //                 firstName: "",
-        //                 lastName: "",
-        //                 email: '',
-        //                 password: "",
-        //                 conformPassword: ''
-        //             },
-        //         ]
-        //     }}
-
-        //     validationSchema={validationSchema}
-
-        //     onSubmit={values => {
-
-        //         console.log(values);
-
-
-        //     }}
-
-        // >
-
-        //     {
-        //         ({ values, isValid, setFieldValue }) => (
-        //             <Form>
-        //                 {values.user.map((user, index) => (<div key={index}>
-        //                     <div>user</div>
-
-        //                     {["firstName", "lastName", "email", "password", "conformPassword"].map((field, i) => {
-        //                         return (<div>
-        //                             <label name={`user.[${index}].${field}`}>{field}</label>
-        //                             <Field name={`user[${index}].${field}`} type={"text"} />
-        //                             <ErrorMessage name={`user[${index}].${field}`} component="div" style={{ 'color': "red", 'font-size': "12px" }} />
-
-        //                         </div>)
-
-        //                     })}
-        //                 </div>))}
-        //                 <button type="button" onSubmit={() => { }}>
-        //                     Submit
-        //                 </button>
-        //             </Form>
-        //         )
-        //     }
-        // </Formik>
-        // </div>`  
     )
 }
 
